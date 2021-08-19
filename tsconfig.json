@@ -2,7 +2,10 @@
   "compilerOptions": {
     "target": "ES6",
     "module": "commonjs",
-    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
     "sourceMap": true,
     "outDir": "dist",
     "baseUrl": ".",

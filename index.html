@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <title>Hello World!</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
-  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';" />
 </head>
 
 <body>
@@ -13,7 +13,8 @@
   We are using Node.js <span id="node-version"></span>, Chromium
   <span id="chrome-version"></span>, and Electron
   <span id="electron-version"></span>.
-
+  <div style="border:2px solid black;border-radius:3px;padding:5px;display:inline-block" draggable="true" id="drag">拖动我
+  </div>
   <script src="./dist/renderer.js"></script>
 </body>
 

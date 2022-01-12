@@ -8,7 +8,8 @@
     "watch": "tsc -w",
     "lint": "eslint -c .eslintrc --ext .ts ./src",
     "package": "electron-packager ./ MyElectron --all --out ./build --overwrite --platform win32",
-    "start": "npm run build && electron ./dist/main.js"
+    "start": "npm run build && electron ./dist/main.js",
+    "prepare": "husky install"
   },
   "repository": "https://github.com/AlterWK/MyElectron",
   "keywords": [
@@ -22,11 +23,38 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
+    "@commitlint/cli": "^16.0.2",
+    "@commitlint/config-conventional": "^16.0.0",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.28.4",
+    "cz-conventional-changelog": "^3.3.0",
     "electron": "^13.1.7",
     "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^8.2.1",
+    "prettier": "^2.5.1",
     "typescript": "^4.3.5"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "miniapp/**/*.{js,sjs,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix --ext .js"
+    ],
+    "miniapp/**/*.{css,less}": "prettier --write"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }

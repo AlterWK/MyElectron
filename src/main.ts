@@ -1,3 +1,5 @@
+/* eslint-disable prefer-const */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { app, BrowserWindow, ipcMain, Menu, MenuItem } from "electron";
 import { IpcMainEvent } from "electron/main";
 import * as path from "path";
